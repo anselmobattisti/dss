@@ -24,35 +24,33 @@ vnfs.append([])
 vnfs.append([])
 vnfs.append([])
 vnfs.append(["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12", "V13", "V14", "V15", "V16", "V17", "V18", "V19"])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append([])
-vnfs.append(["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12", "V13", "V14", "V15", "V16", "V17", "V18", "V19", "V20", "V21", "V22", "V23", "V24", "V25", "V26", "V27", "V28", "V29"])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append([])
+# vnfs.append(["V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12", "V13", "V14", "V15", "V16", "V17", "V18", "V19", "V20", "V21", "V22", "V23", "V24", "V25", "V26", "V27", "V28", "V29"])
 
 results = list()
 
 def run(i):
-    all_plans = helper.generate_all_segmentation_plans(vnfs)
+    all_plans = helper.generate_all_segmentation_plans(vnfs[i])
 
-for k in range(0, 1):
+for k in range(0, 100):
     print(k)
     print("----")
-    for i in range(10,1,-1):
+    for i in range(20,1,-1):
+        if not len(vnfs[i]):
+            continue
         print(i)
         startTime = datetime.now()
-        for j in range(0, 1000):
-            print(j)
-            # a = run(i)
-
+        a = run(i)
         endTime = datetime.now() - startTime
         results.append([k, i, endTime])
-        print(endTime)
 
 print("Terminou .....")
 
